@@ -67,3 +67,37 @@
   display: flex;
   justify-content: space-between;
 }
+
+.triangle-right-red {
+  position: relative;
+  color: #ff3300;
+}
+.triangle-right-green {
+  position: relative;
+  color: #00ff01;
+}
+.triangle-right-grey {
+  position: relative;
+  color: #bdd7ee;
+}
+.triangle-right-yellow {
+  position: relative;
+  color: #ffff00;
+}
+
+.triangle-right-red::after,
+.triangle-right-yellow::after,
+.triangle-right-grey::after,
+.triangle-right-green::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-left: 20px solid currentColor;
+  border-bottom: 20px solid transparent;
+  z-index: 10;
+}

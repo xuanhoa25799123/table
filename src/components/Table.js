@@ -3,6 +3,44 @@ import { Table } from 'antd';
 import TableHeader from './TableHeader';
 import Citation from './Citation';
 
+const arrowStyle = {
+  position: 'relative',
+};
+
+const renderDay = (value, row, index, days) => {
+  const obj = {
+    children: value,
+    props: [],
+  };
+  if (row.day1 && row.days >= days) {
+    if (row.day1.includes('Guarantee')) {
+      obj.props.style = { background: '#00ff01' };
+      if (row.days === days) {
+        obj.props.className = 'triangle-right-green';
+      }
+    }
+    if (row.day1.includes('Inhouse')) {
+      obj.props.style = { background: '#ffff00' };
+      if (row.days === days) {
+        obj.props.className = 'triangle-right-yellow';
+      }
+    }
+    if (row.day1.includes('Non-Guarantee')) {
+      obj.props.style = { background: '#bdd7ee' };
+      if (row.days === days) {
+        obj.props.className = 'triangle-right-grey';
+      }
+    }
+    if (row.day1.includes('OverBook')) {
+      obj.props.style = { background: '#ff3300' };
+      if (row.days === days) {
+        obj.props.className = 'triangle-right-red';
+      }
+    }
+  }
+  return obj;
+};
+
 const TableComp = () => {
   const columns = [
     {
@@ -64,7 +102,10 @@ const TableComp = () => {
             if (value && value.includes('BK')) {
               obj.props.colSpan = 2;
               if (value.includes('Guarantee')) {
-                obj.props.style = { background: '#00ff01' };
+                obj.props.style = {
+                  background: '#00ff01',
+                };
+                // obj.props.className = 'triangle-right';
               }
               if (value.includes('Inhouse')) {
                 obj.props.style = { background: '#ffff00' };
@@ -98,183 +139,43 @@ const TableComp = () => {
           title: 'Wed-21/04',
           dataIndex: 'day3',
           key: 'day3',
-          render: (value, row, index) => {
-            const obj = {
-              children: value,
-              props: [],
-            };
-            if (row.day1 && row.days >= 3) {
-              if (row.day1.includes('Guarantee')) {
-                obj.props.style = { background: '#00ff01' };
-              }
-              if (row.day1.includes('Inhouse')) {
-                obj.props.style = { background: '#ffff00' };
-              }
-              if (row.day1.includes('Non-Guarantee')) {
-                obj.props.style = { background: '#bdd7ee' };
-              }
-              if (row.day1.includes('OverBook')) {
-                obj.props.style = { background: '#ff3300' };
-              }
-            }
-            return obj;
-          },
+          render: (value, row, index) => renderDay(value, row, index, 3),
         },
         {
           title: 'Thu-22/04',
           dataIndex: 'day4',
           key: 'day4',
-          render: (value, row, index) => {
-            const obj = {
-              children: value,
-              props: [],
-            };
-            if (row.day1 && row.days >= 4) {
-              if (row.day1.includes('Guarantee')) {
-                obj.props.style = { background: '#00ff01' };
-              }
-              if (row.day1.includes('Inhouse')) {
-                obj.props.style = { background: '#ffff00' };
-              }
-              if (row.day1.includes('Non-Guarantee')) {
-                obj.props.style = { background: '#bdd7ee' };
-              }
-              if (row.day1.includes('OverBook')) {
-                obj.props.style = { background: '#ff3300' };
-              }
-            }
-            return obj;
-          },
+          render: (value, row, index) => renderDay(value, row, index, 4),
         },
         {
           title: 'Fri-23/04',
           dataIndex: 'day5',
           key: 'day5',
-          render: (value, row, index) => {
-            const obj = {
-              children: value,
-              props: [],
-            };
-            if (row.day1 && row.days >= 5) {
-              if (row.day1.includes('Guarantee')) {
-                obj.props.style = { background: '#00ff01' };
-              }
-              if (row.day1.includes('Inhouse')) {
-                obj.props.style = { background: '#ffff00' };
-              }
-              if (row.day1.includes('Non-Guarantee')) {
-                obj.props.style = { background: '#bdd7ee' };
-              }
-              if (row.day1.includes('OverBook')) {
-                obj.props.style = { background: '#ff3300' };
-              }
-            }
-            return obj;
-          },
+          render: (value, row, index) => renderDay(value, row, index, 5),
         },
         {
           title: 'Sat-24/04',
           dataIndex: 'day6',
           key: 'day6',
-          render: (value, row, index) => {
-            const obj = {
-              children: value,
-              props: [],
-            };
-            if (row.day1 && row.days >= 6) {
-              if (row.day1.includes('Guarantee')) {
-                obj.props.style = { background: '#00ff01' };
-              }
-              if (row.day1.includes('Inhouse')) {
-                obj.props.style = { background: '#ffff00' };
-              }
-              if (row.day1.includes('Non-Guarantee')) {
-                obj.props.style = { background: '#bdd7ee' };
-              }
-              if (row.day1.includes('OverBook')) {
-                obj.props.style = { background: '#ff3300' };
-              }
-            }
-            return obj;
-          },
+          render: (value, row, index) => renderDay(value, row, index, 6),
         },
         {
           title: 'Sun-25/04',
           dataIndex: 'day7',
           key: 'day7',
-          render: (value, row, index) => {
-            const obj = {
-              children: value,
-              props: [],
-            };
-            if (row.day1 && row.days >= 7) {
-              if (row.day1.includes('Guarantee')) {
-                obj.props.style = { background: '#00ff01' };
-              }
-              if (row.day1.includes('Inhouse')) {
-                obj.props.style = { background: '#ffff00' };
-              }
-              if (row.day1.includes('Non-Guarantee')) {
-                obj.props.style = { background: '#bdd7ee' };
-              }
-              if (row.day1.includes('OverBook')) {
-                obj.props.style = { background: '#ff3300' };
-              }
-            }
-            return obj;
-          },
+          render: (value, row, index) => renderDay(value, row, index, 7),
         },
         {
           title: 'Mon-26/04',
           dataIndex: 'day8',
           key: 'day8',
-          render: (value, row, index) => {
-            const obj = {
-              children: value,
-              props: [],
-            };
-            if (row.day1 && row.days >= 8) {
-              if (row.day1.includes('Guarantee')) {
-                obj.props.style = { background: '#00ff01' };
-              }
-              if (row.day1.includes('Inhouse')) {
-                obj.props.style = { background: '#ffff00' };
-              }
-              if (row.day1.includes('Non-Guarantee')) {
-                obj.props.style = { background: '#bdd7ee' };
-              }
-              if (row.day1.includes('OverBook')) {
-                obj.props.style = { background: '#ff3300' };
-              }
-            }
-            return obj;
-          },
+          render: (value, row, index) => renderDay(value, row, index, 8),
         },
         {
           title: 'Tue-27/04',
           dataIndex: 'day9',
           key: 'day9',
-          render: (value, row, index) => {
-            const obj = {
-              children: value,
-              props: [],
-            };
-            if (row.day1 && row.days >= 9) {
-              if (row.day1.includes('Guarantee')) {
-                obj.props.style = { background: '#00ff01' };
-              }
-              if (row.day1.includes('Inhouse')) {
-                obj.props.style = { background: '#ffff00' };
-              }
-              if (row.day1.includes('Non-Guarantee')) {
-                obj.props.style = { background: '#bdd7ee' };
-              }
-              if (row.day1.includes('OverBook')) {
-                obj.props.style = { background: '#ff3300' };
-              }
-            }
-            return obj;
-          },
+          render: (value, row, index) => renderDay(value, row, index, 9),
         },
       ],
     },
